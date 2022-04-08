@@ -20,45 +20,48 @@
     ></script>
   </head>
   <body>
-    <section id="home" class="section-home flex-center">
-      <h1>
-        Hello, I'm <span>Youssef El-Hrouzi</span>. <br />I'm a junior front-end
-        developer.
-      </h1>
-      <a href="#portfolio" alt="Portfolio"
-        ><button>View my work <i class="fas fa-arrow-right"></i></button
-      ></a>
+    <section id="home" class="section-home flex-center flex-column">
+        <h1>
+          Hello, I'm <span>Youssef El-Hrouzi</span>. <br />I'm a junior front-end
+          developer.
+        </h1>
+        <a href="#portfolio" alt="Portfolio"
+          ><button>View my work <i class="fas fa-arrow-right"></i></button
+        ></a>
     </section>
 
     <!-- Navigation Bar -->
     <div class="nav-container">
-      <div class="nav-toggler">
-        <span class="span1"></span>
-        <span class="span2"></span>
-        <span class="span3"></span>
+      <div class="wrapper">
+        <div class="nav-toggler">
+          <span class="span1"></span>
+          <span class="span2"></span>
+          <span class="span3"></span>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#home" alt="Home">home</a>
+            </li>
+            <li>
+              <a href="#about" alt="About">about</a>
+            </li>
+            <li>
+              <a href="#portfolio" alt="Portfolio">portfolio</a>
+            </li>
+            <li>
+              <a href="#blog" alt="Blog">blog</a>
+            </li>
+            <li>
+              <a href="#contact" alt="Contact">contact</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li>
-            <a href="#home" alt="Home">home</a>
-          </li>
-          <li>
-            <a href="#about" alt="About">about</a>
-          </li>
-          <li>
-            <a href="#portfolio" alt="Portfolio">portfolio</a>
-          </li>
-          <li>
-            <a href="#blog" alt="Blog">blog</a>
-          </li>
-          <li>
-            <a href="#contact" alt="Contact">contact</a>
-          </li>
-        </ul>
-      </nav>
     </div>
 
-    <section id="about" class="section-about flex-center">
+    <section id="about" class="section-about">
+      <div class="wrapper flex-center flex-column">
       <h2>ABOUT</h2>
       <div class="about-flex">
         <div class="about-ftr1">
@@ -188,9 +191,11 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
 
-    <section id="portfolio" class="section-portfolio flex-center">
+    <section id="portfolio" class="section-portfolio">
+      <div class="wrapper flex-center flex-column">
       <h2>PROJECTS</h2>
 
       <div class="projects-links">
@@ -293,9 +298,11 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
 
-    <section id="blog" class="section-blog flex-center">
+    <section id="blog" class="section-blog">
+      <div class="wrapper flex-center flex-column">
       <h2>BLOG</h2>
       <div class="blogs-container flex-center">
         <div class="blog-card">
@@ -342,9 +349,10 @@
           </p>
         </div>
       </div>
+    </div>
     </section>
 
-    <section id="contact" class="section-contact flex-center">
+    <section id="contact" class="section-contact flex-center flex-column">
       <h2>CONTACT</h2>
       <!-- The link to the back-end script is mentioned in the "action" attribute of the HTML form tag. -->
       <form action="" name="questionsForm"> 
@@ -363,8 +371,8 @@
           </div>
         </div>
       </form>
-
     </section>
+
     <footer>
       <a href="#home" alt="Up" class="up-link"><div class="up-btn">>></div></a>
       <div class="social-cntr">

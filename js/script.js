@@ -19,11 +19,13 @@ function animate() {
         const sectionActionLevel = sec.getBoundingClientRect().top
         if (sectionActionLevel < 300) {
             navlinks.forEach(lnk => {
+                lnk.classList.remove("colored")
+                lnk.classList.add("first-color") // Initialize all nav links' color
                 if (lnk.innerHTML == sec.id) { // OR "lnk.innerText.toLowerCase() == sec.id"
-                    lnk.style.color = "var(--thrd-color)" // Color the specific link
-                } else {
-                    lnk.style.color = "white" // Initialize all nav links' color
-                }
+                    // Color the specific link
+                    lnk.classList.remove("first-color")
+                    lnk.classList.add("colored")
+                } 
             })
         }
     }) 
@@ -83,7 +85,7 @@ function animate() {
     
     let formInputs = document.querySelector(".form-inputs")
     const formActionLevel = formInputs.getBoundingClientRect().top
-    if (formActionLevel < 450) {
+    if (formActionLevel < 550) {
         formInputs.classList.add("anim")
     }
 }

@@ -6,6 +6,7 @@
   --ffth-color: #444649;
   --sxth-color: #616161;
   --svth-color: #252934;
+  --white-color: white;
 }
 * {
   padding: 0;
@@ -28,6 +29,13 @@ body {
 section {
   width: 100%;
   padding: 6rem 2rem;
+}
+.wrapper {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.flex-column {
   flex-direction: column;
   overflow: hidden;
 }
@@ -86,7 +94,7 @@ section {
   top: 0;
 }
 nav {
-  margin-left: 10%;
+  margin-left: 8%;
 }
 nav ul {
   margin-top: 6px;
@@ -105,6 +113,12 @@ nav ul li a,
   text-decoration: none;
   color: var(--first-color);
   transition: color 0.5s ease;
+}
+nav ul li a.first-color {
+  color: var(--first-color);
+}
+nav ul li a.colored {
+  color: var(--thrd-color);
 }
 nav ul li a:hover {
   color: var(--thrd-color);
@@ -133,6 +147,9 @@ nav ul li a:hover {
 /** End Responsive Nav-Bar */
 
 /** Start of Section About */
+#about {
+  background-color: var(--white-color);
+}
 h2 {
   font-size: 2.3rem;
   color: var(--ffth-color);
@@ -210,24 +227,20 @@ h2::after {
 }
 
 .about-flex {
-  width: 87%;
-  margin-bottom: 4rem;
-}
-.about-flex,
-.about-ftr1,
-.about-ftr2 {
+  max-width: 1200px;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: space-around;
 }
 .about-ftr1,
 .about-ftr2 {
+  display: flex;
   width: 50%;
-  min-width: 13rem;
   flex-wrap: wrap;
 }
 .about-card {
-  width: 50%;
-  min-width: 11.9rem;
+  flex: 1 12.5rem;
+  margin-bottom: 2rem
 }
 .about-card,
 .my-card {
@@ -405,7 +418,6 @@ h3 {
 }
 #portfolio ul li:first-child a,
 #portfolio ul li:hover a {
-  color: var(--first-color);
   background-color: var(--thrd-color);
 }
 .project {
@@ -631,7 +643,7 @@ h3 {
   margin: 3rem auto;
   text-align: center;
   position: relative;
-  left: -60vw;
+  left: -75vw;
   transition: all 800ms ease-out;
 }
 .question.anim {
