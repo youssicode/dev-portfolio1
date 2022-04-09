@@ -89,4 +89,22 @@ function animate() {
         formInputs.classList.add("anim")
     }
 }
+// Sorting Projects by Technologies
+let projectBtn = document.querySelectorAll(".projects-links ul li a")
+let Projects = document.querySelectorAll(".project")
 
+projectBtn.forEach(btn => btn.addEventListener("click",renderProjects))
+
+function renderProjects() {
+    let technologie = this.dataset.tech // this refer to the button
+    if (technologie == "all") {
+        Projects.forEach(prj => prj.classList.remove("hide"))
+        return
+    }
+    Projects.forEach(prj => {
+        prj.classList.add("hide")
+        if (prj.dataset.tech.includes(technologie)) {
+            prj.classList.remove("hide")
+        }
+    })
+}

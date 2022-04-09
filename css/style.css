@@ -415,6 +415,7 @@ h3 {
 #portfolio ul li a {
   color: var(--sxth-color);
   padding: 0.3rem 2vw;
+  cursor: pointer;
 }
 #portfolio ul li:first-child a,
 #portfolio ul li:hover a {
@@ -427,11 +428,14 @@ h3 {
   background-size: 390px 300px;
   margin-top: 60%;
   opacity: 0;
-  transition: margin-top 1.5s ease-out, opacity 3s ease;
+  transition: all 1.5s ease-out, opacity 3s ease;
 }
 .project.anim {
   margin-top: 0;
   opacity: 1;
+}
+.project.hide {
+  display: none;
 }
 .projects-links {
   opacity: 0;;
@@ -805,6 +809,9 @@ footer h4 {
 @media screen and (max-width: 850px) {
   .blogs-container {
     width: 26rem;
+  }
+  #portfolio ul li {
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 700px) {
