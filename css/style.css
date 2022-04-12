@@ -100,16 +100,18 @@ nav ul {
   margin-top: 6px;
   margin-bottom: 6px;
 }
-nav ul li,
-#portfolio ul li {
-  display: inline-block;
+nav ul li {
   margin-left: 2.5rem;
+}
+nav ul li,
+#portfolio .projects-links ul li {
+  display: inline-block;
   text-transform: uppercase;
   font-weight: 400;
   padding: 0.5rem 0;
 }
 nav ul li a,
-#portfolio ul li a {
+#portfolio .projects-links ul li a {
   text-decoration: none;
   color: var(--first-color);
   transition: color 0.5s ease;
@@ -260,7 +262,7 @@ h3 {
   width: 100%;
 }
 .my-card {
-  width: 35%;
+  width: 40%;
   min-width: 22rem;
   position: relative;
   left: -50%;
@@ -299,9 +301,7 @@ h3 {
   text-decoration: none;
 }
 .skills {
-  width: 40%;
-  min-width: 28rem;
-  max-width: 38rem;
+  width: clamp(28rem,45%,38rem);
   position: relative;
   right: -50%;
   opacity: 0;
@@ -404,22 +404,47 @@ h3 {
 #portfolio {
   background-color: #f5f5f5;
 }
-#portfolio ul li {
-  margin: 0 1rem;
-  font-weight: 600;
-  font-size: 1.2rem;
+#portfolio .projects-links {
+  max-width: 780px;
+  width: 85%;
+  position: relative;
 }
-#portfolio ul {
+#portfolio .projects-links ul {
+  width: 100%;
   margin-bottom: 1rem;
 }
-#portfolio ul li a {
+#portfolio .projects-links ul li {
+  /* margin: 0 1rem; */
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 24%;
+  text-align: center;
+  position: relative; /* added to make z-index effective */
+  z-index: 2;
+}
+#portfolio .projects-links ul .li-bg {
+  background-color: var(--thrd-color);
+  opacity: .7;
+  color: transparent;
+  left: 0;
+  position: absolute;
+  width: 24%;
+  z-index: 1;
+  transition: left 600ms;
+}
+#portfolio .projects-links ul .li-bg.margin25 {
+left: 25%;
+}
+#portfolio .projects-links ul .li-bg.margin50 {
+left: 49%;
+}
+#portfolio .projects-links ul .li-bg.margin75 {
+left: 74%;
+}
+#portfolio .projects-links ul li a {
   color: var(--sxth-color);
   padding: 0.3rem 2vw;
   cursor: pointer;
-}
-#portfolio ul li:first-child a,
-#portfolio ul li:hover a {
-  background-color: var(--thrd-color);
 }
 .project {
   width: 390px;
@@ -428,14 +453,16 @@ h3 {
   background-size: 390px 300px;
   margin-top: 60%;
   opacity: 0;
-  transition: all 1.5s ease-out, opacity 3s ease;
+  transition: all 1s ease-out, opacity 3s ease;
 }
 .project.anim {
   margin-top: 0;
   opacity: 1;
 }
 .project.hide {
-  display: none;
+  transform: scale(0);
+  opacity: 0;
+  position: absolute;;
 }
 .projects-links {
   opacity: 0;;
@@ -810,7 +837,7 @@ footer h4 {
   .blogs-container {
     width: 26rem;
   }
-  #portfolio ul li {
+  #portfolio .projects-links ul li {
     font-size: 1rem;
   }
 }
@@ -821,8 +848,8 @@ footer h4 {
   section {
     padding: 4rem 0.5rem 6rem;
   }
-  #portfolio ul li {
-    margin: 0 0 0.2rem 0;
+  #portfolio .projects-links ul li {
+    /* margin: 0 0 0.2rem 0; */
     font-size: 0.9rem;
   }
   .contact-container {

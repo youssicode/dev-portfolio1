@@ -96,15 +96,31 @@ let Projects = document.querySelectorAll(".project")
 projectBtn.forEach(btn => btn.addEventListener("click",renderProjects))
 
 function renderProjects() {
+    changeBgBtn(this)
     let technologie = this.dataset.tech // this refer to the button
     if (technologie == "all") {
         Projects.forEach(prj => prj.classList.remove("hide"))
         return
     }
     Projects.forEach(prj => {
-        prj.classList.add("hide")
         if (prj.dataset.tech.includes(technologie)) {
             prj.classList.remove("hide")
+        } else {
+            prj.classList.add("hide")
         }
     })
+    // Projects.forEach(prj => {
+    //     prj.classList.add("hide")
+    //     if (prj.dataset.tech.includes(technologie)) {
+    //         prj.classList.remove("hide")
+    //     }
+    // })
+}
+
+function  changeBgBtn(btn) {
+    let bg = document.querySelector(".li-bg")
+    bg.classList.remove("margin25", "margin50", "margin75")
+    if (btn.getAttribute("data-tech") == "ronr") bg.classList.add("margin25")
+    if (btn.getAttribute("data-tech") == "react") bg.classList.add("margin50")
+    if (btn.getAttribute("data-tech") == "js") bg.classList.add("margin75")
 }
