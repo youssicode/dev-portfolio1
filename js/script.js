@@ -1,18 +1,6 @@
-
-let navToggler = document.querySelector(".nav-toggler")
-navToggler.onclick = function () {
-    let nav = document.querySelector("nav")
-    let spans = navToggler.querySelectorAll("SPAN")
-
-    nav.classList.toggle("triger");
-    spans.forEach(sp => sp.classList.toggle('triger'))
-
-}
-
 window.addEventListener("scroll", animate)
 window.onload = animate();
 function animate() {
-    
     let sections = document.querySelectorAll("section")
     let navlinks = document.querySelectorAll('nav ul li a')
     sections.forEach(sec => {
@@ -40,8 +28,7 @@ function animate() {
         const hexWrapperActionLevel = el.getBoundingClientRect().top
         if (hexWrapperActionLevel < (window.innerHeight/2)) {
             el.classList.add("anim")
-            // Anime the next Element (Description Div)
-            el.nextElementSibling.classList.add("anim")
+            el.nextElementSibling.classList.add("anim") // Anime the next Element (Description Div)
         }
     }) 
     
@@ -89,6 +76,17 @@ function animate() {
         formInputs.classList.add("anim")
     }
 }
+
+// Anime Nav Burger Link
+let navToggler = document.querySelector(".nav-toggler")
+navToggler.onclick = function () {
+    let nav = document.querySelector("nav")
+    let spans = navToggler.querySelectorAll("SPAN")
+
+    nav.classList.toggle("triger");
+    spans.forEach(sp => sp.classList.toggle('triger'))
+}
+
 // Sorting Projects by Technologies
 let projectBtn = document.querySelectorAll(".projects-links ul li a")
 let Projects = document.querySelectorAll(".project")
@@ -97,7 +95,7 @@ projectBtn.forEach(btn => btn.addEventListener("click",renderProjects))
 
 function renderProjects() {
     changeBgBtn(this)
-    let technologie = this.dataset.tech // this refer to the button
+    let technologie = this.dataset.tech // this refer to the clicked button
     if (technologie == "all") {
         Projects.forEach(prj => prj.classList.remove("hide"))
         return
@@ -109,12 +107,6 @@ function renderProjects() {
             prj.classList.add("hide")
         }
     })
-    // Projects.forEach(prj => {
-    //     prj.classList.add("hide")
-    //     if (prj.dataset.tech.includes(technologie)) {
-    //         prj.classList.remove("hide")
-    //     }
-    // })
 }
 
 function  changeBgBtn(btn) {

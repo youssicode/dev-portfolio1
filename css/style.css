@@ -25,15 +25,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-/* Start Home section  */
+/** Start Home section  */
 section {
-  width: 100%;
   padding: 6rem 2rem;
 }
 .wrapper {
   max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .flex-column {
   flex-direction: column;
@@ -45,20 +43,20 @@ section {
 }
 #home h1 {
   font-size: 2.7rem;
+  font-weight: 400;
   color: var(--first-color);
   text-align: center;
-  font-weight: 400;
 }
 #home span {
   color: var(--thrd-color);
 }
 #home button {
   font-size: 1.3rem;
-  background-color: transparent;
-  color: var(--first-color);
+  font-weight: 500;
   padding: 11px 22px;
   margin-top: 1.1rem;
-  font-weight: 500;
+  background-color: transparent;
+  color: var(--first-color);
   border: 2px solid var(--first-color);
   transition: 0.5s;
 }
@@ -80,15 +78,14 @@ section {
 
 /** Start Responsive Nav-Bar */
 .nav-container {
-  width: 100%;
   height: 50px;
   background-color: var(--frth-color);
   border-bottom: 3px solid var(--sd-color);
   position: sticky;
   top: -50px;
-  transition: all 700ms;
   overflow: hidden;
   z-index: 99;
+  transition: all 700ms;
 }
 .nav-container.sticky {
   top: 0;
@@ -97,8 +94,7 @@ nav {
   margin-left: 8%;
 }
 nav ul {
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin: 6px 0;
 }
 nav ul li {
   margin-left: 2.5rem;
@@ -119,21 +115,19 @@ nav ul li a,
 nav ul li a.first-color {
   color: var(--first-color);
 }
-nav ul li a.colored {
-  color: var(--thrd-color);
-}
+nav ul li a.colored,
 nav ul li a:hover {
   color: var(--thrd-color);
 }
 .nav-toggler {
   width: 50px;
   height: 47px;
+  padding: 3px 6px;
   background-color: var(--frth-color);
   float: right;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 3px 6px;
   display: none;
 }
 .nav-toggler span {
@@ -146,7 +140,7 @@ nav ul li a:hover {
 .nav-toggler .span3 {
   transition: all 500ms;
 }
-/** End Responsive Nav-Bar */
+/* End Responsive Nav-Bar */
 
 /** Start of Section About */
 #about {
@@ -154,8 +148,8 @@ nav ul li a:hover {
 }
 h2 {
   font-size: 2.3rem;
-  color: var(--ffth-color);
   font-weight: 700;
+  color: var(--ffth-color);
   margin-bottom: 4rem;
   margin-left: 150%;
   transition: all 1s;
@@ -165,10 +159,10 @@ h2.anim {
 }
 h2::after {
   content: "";
+  width: 4.3rem;
+  height: 0.25rem;
   display: block;
   background-color: var(--ffth-color);
-  height: 0.25rem;
-  width: 4.3rem;
   margin: 10px auto;
 }
 .fa-tachometer-alt,
@@ -198,16 +192,16 @@ h2::after {
   transform: rotateY(0deg);
 }
 .hex-holder i {
-  z-index: 5;
-  color: var(--first-color);
   font-size: 2.5rem;
+  color: var(--first-color);
+  z-index: 5;
 }
 .hexagon,
 .hexagon::after,
 .hexagon::before {
   position: absolute;
-  background-color: var(--sd-color);
   height: inherit;
+  background-color: var(--sd-color);
 }
 .hexagon::after,
 .hexagon::before {
@@ -227,7 +221,6 @@ h2::after {
 .hexagon::before {
   transform: rotate(-60deg);
 }
-
 .about-flex {
   max-width: 1200px;
   margin-bottom: 3rem;
@@ -236,8 +229,8 @@ h2::after {
 }
 .about-ftr1,
 .about-ftr2 {
-  display: flex;
   width: 50%;
+  display: flex;
   flex-wrap: wrap;
 }
 .about-card {
@@ -259,7 +252,6 @@ h3 {
 }
 .who-is {
   flex-wrap: wrap;
-  width: 100%;
 }
 .my-card {
   width: 40%;
@@ -320,12 +312,12 @@ h3 {
 .skill-name {
   width: 7rem;
   height: 100%;
-  background-color: var(--sd-color);
-  line-height: 1.9rem;
-  color: var(--first-color);
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.9rem;
   text-align: center;
+  color: var(--first-color);
+  background-color: var(--sd-color);
 }
 .bar:first-child .percentage {
   margin-left: 80%;
@@ -338,7 +330,7 @@ h3 {
   height: 100%;
   float: left;
 }
-/** ====== Animate Bars Level ======= */
+/** Animate Bars Level */
 .bar:first-child .bar-level {
   transition: all 700ms 1s ease-out;
 }
@@ -363,7 +355,6 @@ h3 {
 .bar:nth-child(8) .bar-level {
   transition: all 700ms 1.7s ease-out;
 }
-
 .bar:nth-child(6) .bar-level.anim {
   width: calc((40 * (100% - 7rem) / 100) + 7rem);
 }
@@ -398,37 +389,35 @@ h3 {
   text-align: end;
   padding-right: 0.6rem;
 }
-/** End of Section About */
+/* End of About Section */
 
-/** Start of Section Projects */
+/** Start of Projects Section */
 #portfolio {
   background-color: #f5f5f5;
 }
 #portfolio .projects-links {
-  max-width: 780px;
   width: 85%;
+  max-width: 780px;
   position: relative;
 }
 #portfolio .projects-links ul {
-  width: 100%;
   margin-bottom: 1rem;
 }
 #portfolio .projects-links ul li {
-  /* margin: 0 1rem; */
-  font-weight: 600;
   font-size: 1.2rem;
+  font-weight: 600;
   width: 24%;
   text-align: center;
-  position: relative; /* added to make z-index effective */
+  position: relative; /* added to make z-index effective! */
   z-index: 2;
 }
 #portfolio .projects-links ul .li-bg {
+  width: 24%;
+  color: transparent;
   background-color: var(--thrd-color);
   opacity: .7;
-  color: transparent;
   left: 0;
   position: absolute;
-  width: 24%;
   z-index: 1;
   transition: left 600ms;
 }
@@ -499,13 +488,13 @@ left: 74%;
   background-image: url(../images/thumb-9.jpg);
 }
 .flip {
-  background-color: #f5f5f5;
   width: 100%;
   height: 100%;
   position: relative;
-  transition: all 0.5s;
+  background-color: #f5f5f5;
   visibility: hidden;
   opacity: 0;
+  transition: all 0.5s;
 }
 .flip h4 {
   font-size: 1.3rem;
@@ -517,8 +506,8 @@ left: 74%;
 .flip button {
   font-size: 1rem;
   padding: 0.7rem 1.4rem;
-  border: 2px solid var(--thrd-color);
   background-color: transparent;
+  border: 2px solid var(--thrd-color);
 }
 .flip button:hover {
   background-color: var(--thrd-color);
@@ -529,8 +518,8 @@ left: 74%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  transition: all 0.5s;
   opacity: 0;
+  transition: all 0.5s;
 }
 .flip div {
   top: 0;
@@ -552,36 +541,12 @@ left: 74%;
   bottom: 22%;
   opacity: 1;
 }
-/** Start-Projects section using Grid Layout */
-/*
-.projects-grid {
-  max-width: 1200px; /*! To not have 4 grid columns *!/
-  margin: 0 0.3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 390px); /*! Auto-fill: Number of Columns changes automaticaly *!/
-  justify-content: center;
-  align-self: normal; /*! To avoid the anomaly cosed by 'align-items' in parent Section*/
-/*! To center the grid, 'margin:0 auto' works too but cause grid-items wrapping anomaly *!/
-  position: relative;
-  left: calc(50% - 0.3rem);
-  transform: translateX(-50%);
-}
-@media screen and (min-width: 790px) and (max-width: 1195px) {
-  .project:nth-child(9) {
-    grid-column: span 2;
-    margin: 0 auto;
-  }
-}
-*/
-/** End-Projects section using Grid Layout */
-
-/** Start-Projects section using Flex-Box Layout */
+/*Projects section using Flex-Box is more simple than using Grid layout */
 .projects-grid {
   max-width: 1170px;
   flex-wrap: wrap;
 }
-/* with class="flex-center" That's all !! */
-/** End-Projects section using Flex-Box Layout */
+/* End of Projects Section */
 
 /** Start Blog section */
 .blogs-container {
@@ -617,16 +582,16 @@ left: 74%;
 }
 .date::after {
   content: "";
-  display: block;
   width: 25%;
   height: 3px;
+  display: block;
   margin-top: 1.3rem;
   background-color: var(--sd-color);
 }
 .blog-card p {
   font-size: 0.9rem;
 }
-/* Styling the other container's elements but the hovered one. */
+/* Styling the other container's elements but not the hovered one. */
 .blogs-container:hover .blog-card {
   opacity: 0.5;
 }
@@ -638,19 +603,9 @@ left: 74%;
 .blog-card:hover h3 {
   color: #04c2c9 !important;
 }
-/** To Know:
-// Styling just the precedent elements.
-.blog-card:hover ~ .blog-card {
-  opacity: 0.5;
-}
-// Styling just the previous elements.
-.blogs-container:hover .blog-card {
-  opacity: 0.5;
-}
-.blog-card:hover,
-.blog-card:hover ~ .blog-card {
-  opacity: 1 !important;
-} */
+/* End of Blog Section */
+
+/** Start of Contact Section */
 #contact {
   background: var(--svth-color) url(../images/contact-bg.jpg) no-repeat top
     center;
@@ -667,7 +622,6 @@ left: 74%;
 }
 .contact-container {
   width: 32rem;
-  max-width: 32rem;
 }
 .question {
   color: var(--sd-color);
@@ -682,15 +636,8 @@ left: 74%;
 }
 .form-inputs {
   visibility: hidden;
-  /* Alternative 
-  transform: scale(30%);
-  transition: all 900ms;
-  */
 }
 .form-inputs.anim {
-  /* Alternative 
-  transform: scale(1);
-  */
   visibility: visible;
   animation: contact 1000ms ease-in;
 }
@@ -714,10 +661,10 @@ left: 74%;
   width: 100%;
   background-color: var(--frth-color);
   border: none;
+  outline: none;
   color: var(--first-color);
   font-size: 1rem;
   padding: 0.6rem;
-  outline: none;
 }
 .name,
 .email {
@@ -737,12 +684,12 @@ form .sub-btn {
   font-size: 1rem;
   font-weight: 500;
   line-height: 2.5rem;
+  color: var(--first-color);
   padding: 0 2rem;
   background-color: var(--frth-color);
   border: 2px solid var(--first-color);
-  color: var(--first-color);
-  transition: 0.5s;
   float: right;
+  transition: 0.5s;
 }
 
 footer {
@@ -760,11 +707,11 @@ footer {
   width: 3.48rem;
   height: 3.125rem;
   background-color: var(--thrd-color);
-  font-weight: 600;
-  text-align: center;
-  line-height: 2.69rem;
-  color: var(--first-color);
   font-size: x-large;
+  font-weight: 600;
+  line-height: 2.69rem;
+  text-align: center;
+  color: var(--first-color);
 }
 .social-cntr {
   width: fit-content;
@@ -772,16 +719,17 @@ footer {
   margin: 0 auto 2.5rem;
 }
 .social-cntr div {
+  position: relative;
   flex-shrink: 0;
   width: 3.5rem;
   height: 3.5rem;
+  overflow: hidden;
   background-color: var(--svth-color);
   margin: 0 1rem;
   color: var(--first-color);
   font-size: 1.2rem;
+  cursor: pointer;
   transition: all 0.5s ease;
-  position: relative;
-  overflow: hidden;
 }
 .social-cntr div i {
   position: absolute;
@@ -849,7 +797,6 @@ footer h4 {
     padding: 4rem 0.5rem 6rem;
   }
   #portfolio .projects-links ul li {
-    /* margin: 0 0 0.2rem 0; */
     font-size: 0.9rem;
   }
   .contact-container {
