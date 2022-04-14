@@ -1,18 +1,6 @@
-
-let navToggler = document.querySelector(".nav-toggler")
-navToggler.onclick = function () {
-    let nav = document.querySelector("nav")
-    let spans = navToggler.querySelectorAll("SPAN")
-
-    nav.classList.toggle("triger");
-    spans.forEach(sp => sp.classList.toggle('triger'))
-
-}
-
 window.addEventListener("scroll", animate)
 window.onload = animate();
 function animate() {
-    
     let sections = document.querySelectorAll("section")
     let navlinks = document.querySelectorAll('nav ul li a')
     sections.forEach(sec => {
@@ -40,8 +28,7 @@ function animate() {
         const hexWrapperActionLevel = el.getBoundingClientRect().top
         if (hexWrapperActionLevel < (window.innerHeight/2)) {
             el.classList.add("anim")
-            // Anime the next Element (Description Div)
-            el.nextElementSibling.classList.add("anim")
+            el.nextElementSibling.classList.add("anim") // Anime the next Element (Description Div)
         }
     }) 
     
@@ -90,3 +77,42 @@ function animate() {
     }
 }
 
+// Anime Nav Burger Link
+let navToggler = document.querySelector(".nav-toggler")
+navToggler.onclick = function () {
+    let nav = document.querySelector("nav")
+    let spans = navToggler.querySelectorAll("SPAN")
+
+    nav.classList.toggle("triger");
+    spans.forEach(sp => sp.classList.toggle('triger'))
+}
+
+// Sorting Projects by Technologies
+let projectBtn = document.querySelectorAll(".projects-links ul li a")
+let Projects = document.querySelectorAll(".project")
+
+projectBtn.forEach(btn => btn.addEventListener("click",renderProjects))
+
+function renderProjects() {
+    changeBgBtn(this)
+    let technologie = this.dataset.tech // this refer to the clicked button
+    if (technologie == "all") {
+        Projects.forEach(prj => prj.classList.remove("hide"))
+        return
+    }
+    Projects.forEach(prj => {
+        if (prj.dataset.tech.includes(technologie)) {
+            prj.classList.remove("hide")
+        } else {
+            prj.classList.add("hide")
+        }
+    })
+}
+
+function  changeBgBtn(btn) {
+    let bg = document.querySelector(".li-bg")
+    bg.classList.remove("margin25", "margin50", "margin75")
+    if (btn.getAttribute("data-tech") == "ronr") bg.classList.add("margin25")
+    if (btn.getAttribute("data-tech") == "react") bg.classList.add("margin50")
+    if (btn.getAttribute("data-tech") == "js") bg.classList.add("margin75")
+}
