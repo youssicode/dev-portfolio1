@@ -119,42 +119,31 @@ function  changeBgBtn(btn) {
 // Contact Form Validation
 const contacSubmitBtn = document.querySelector('.sub-btn')
 contacSubmitBtn.addEventListener("click", (ev)=>{
+    ev.preventDefault()
     const contactNameInput = document.querySelector('input[name="visitorName"]').value
     const contactEmailInput = document.querySelector('input[name="visitorEmail"]').value
     const contactMsgInput = document.querySelector('textarea[name="visitorMessage"]').value
+
     // Name Validiation
-    if (!contactNameInput) {
-        ev.preventDefault()
-        alert("Fill the name feild.")
-        return
-    } 
-    if ((/\d/ig).test(contactNameInput)) {
-        ev.preventDefault()
-        alert("Not a valid name (containe a digit).")
-        return
-    } 
-    let charts = contactNameInput.match(/\W/ig).filter(el => el != ' ' && el != '-')
-    if (charts.length) {
-        ev.preventDefault()
-        alert("Not a valid name (containe a special char.).")
-        return
-    } 
+    // let spCharts = (/^\w\s-_/ig).test(contactNameInput)
+    // let nameTest = !((/\d/ig).test(contactNameInput)) && !(/[^\w\s-.]/ig).test(contactNameInput)
+    let nameTest = !(/[^a-zA-Z-_.\s]/ig).test(contactNameInput)
+    console.log(nameTest)
+    if (!validateField(contactNameInput,"Name",nameTest)) return
+ 
     // Email Validiation
-    if (!contactEmailInput) {
-        ev.preventDefault()
-        alert("Fill the Email feild.")
-        return
-    }
     let emailTest = (/^\w+([.-]?\w+)*@\[?\w+(-?\w+)*(.\w{2,})+\]?$/ig).test(contactEmailInput)
-    if (!emailTest) {
-        ev.preventDefault()
-        alert("Enter a valid email")
-        return
-    } 
+    if (!validateField(contactEmailInput,"Email",emailTest)) return
+ 
     // Message Validiation
-    if (!contactMsgInput) {
-        ev.preventDefault()
-        alert("Fill the message feild.")
-        return
+    if (!validateField(contactMsgInput,"Message",true)) return
+
+    function validateField(val,inputName,test) {
+        if ((val == '') || (test == false)){
+            ev.preventDefault()
+            alert("Enter a valid "+inputName+".")
+            return false
+        } 
+        return true
     }
 })
