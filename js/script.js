@@ -116,3 +116,45 @@ function  changeBgBtn(btn) {
     if (btn.getAttribute("data-tech") == "react") bg.classList.add("margin50")
     if (btn.getAttribute("data-tech") == "js") bg.classList.add("margin75")
 }
+// Contact Form Validation
+const contacSubmitBtn = document.querySelector('.sub-btn')
+contacSubmitBtn.addEventListener("click", (ev)=>{
+    const contactNameInput = document.querySelector('input[name="visitorName"]').value
+    const contactEmailInput = document.querySelector('input[name="visitorEmail"]').value
+    const contactMsgInput = document.querySelector('textarea[name="visitorMessage"]').value
+    // Name Validiation
+    if (!contactNameInput) {
+        ev.preventDefault()
+        alert("Fill the name feild.")
+        return
+    } 
+    if ((/\d/ig).test(contactNameInput)) {
+        ev.preventDefault()
+        alert("Not a valid name (containe a digit).")
+        return
+    } 
+    let charts = contactNameInput.match(/\W/ig).filter(el => el != ' ' && el != '-')
+    if (charts.length) {
+        ev.preventDefault()
+        alert("Not a valid name (containe a special char.).")
+        return
+    } 
+    // Email Validiation
+    if (!contactEmailInput) {
+        ev.preventDefault()
+        alert("Fill the Email feild.")
+        return
+    }
+    let emailTest = (/^\w+([.-]?\w+)*@\[?\w+(-?\w+)*(.\w{2,})+\]?$/ig).test(contactEmailInput)
+    if (!emailTest) {
+        ev.preventDefault()
+        alert("Enter a valid email")
+        return
+    } 
+    // Message Validiation
+    if (!contactMsgInput) {
+        ev.preventDefault()
+        alert("Fill the message feild.")
+        return
+    }
+})
