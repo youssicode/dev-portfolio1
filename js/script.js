@@ -117,33 +117,33 @@ function  changeBgBtn(btn) {
     if (btn.getAttribute("data-tech") == "js") bg.classList.add("margin75")
 }
 // Contact Form Validation
-const contacSubmitBtn = document.querySelector('.sub-btn')
-contacSubmitBtn.addEventListener("click", (ev)=>{
-    ev.preventDefault()
+const contacForm = document.querySelector('form[name="questionsForm"]')
+contacForm.onsubmit = (ev)=>{
     const contactNameInput = document.querySelector('input[name="visitorName"]').value
     const contactEmailInput = document.querySelector('input[name="visitorEmail"]').value
     const contactMsgInput = document.querySelector('textarea[name="visitorMessage"]').value
 
     // Name Validiation
-    // let spCharts = (/^\w\s-_/ig).test(contactNameInput)
-    // let nameTest = !((/\d/ig).test(contactNameInput)) && !(/[^\w\s-.]/ig).test(contactNameInput)
-    let nameTest = !(/[^a-zA-Z-_.\s]/ig).test(contactNameInput)
-    console.log(nameTest)
-    if (!validateField(contactNameInput,"Name",nameTest)) return
+    const nameTemplate = /^([A-Z][a-z]*(\.[a-z]+)*(-[a-z]+)*(_[a-z]+)*\s?)+$/ig
+    if (!validateField(contactNameInput,"Name",nameTemplate)) return false
  
     // Email Validiation
-    let emailTest = (/^\w+([.-]?\w+)*@\[?\w+(-?\w+)*(.\w{2,})+\]?$/ig).test(contactEmailInput)
-    if (!validateField(contactEmailInput,"Email",emailTest)) return
+    const emailTemplate = /^\w+([.-]?\w+)*@\w+([-_]?\w+)*(\.\w{2,})+$/ig
+    if (!validateField(contactEmailInput,"Email",emailTemplate)) return false
  
     // Message Validiation
-    if (!validateField(contactMsgInput,"Message",true)) return
+    if (!validateField(contactMsgInput,"Message")) return false
 
-    function validateField(val,inputName,test) {
-        if ((val == '') || (test == false)){
-            ev.preventDefault()
+    // All tests passed
+    return true
+    
+    function validateField(val,inputName,tamplate) {
+        let test
+        tamplate? test = tamplate.test(val) : test = true // If there is no template (validating Message) => test = true
+        if ((val == '') || (test == false)) {
             alert("Enter a valid "+inputName+".")
             return false
         } 
         return true
     }
-})
+}
